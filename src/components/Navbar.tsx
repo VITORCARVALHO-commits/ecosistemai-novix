@@ -2,14 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
-const navLinks = [
-  { label: "Sobre", href: "#sobre" },
-  { label: "Ecossistema", href: "#ecossistema" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Portfólio", href: "#portfolio" },
-  { label: "Visão", href: "#visao" },
-  { label: "Contato", href: "#contato" },
-];
+const navLinks = [];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -36,12 +29,12 @@ const Navbar = () => {
         </a>
 
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className={`text-sm font-medium transition-colors ${scrolled ? "text-muted-foreground hover:text-primary" : "text-primary-foreground/70 hover:text-primary-foreground"}`}>
-              {link.label}
-            </a>
-          ))}
-          <a href="#contato" className="text-sm bg-accent text-accent-foreground px-5 py-2.5 rounded-lg font-medium hover:opacity-90 transition-opacity">
+          <a
+            href="https://wa.me/447704424643"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm bg-accent text-accent-foreground px-5 py-2.5 rounded-lg font-medium hover:opacity-90 transition-opacity"
+          >
             Fale Conosco
           </a>
         </div>
@@ -55,11 +48,15 @@ const Navbar = () => {
         {mobileOpen && (
           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="md:hidden bg-card border-t border-border">
             <div className="flex flex-col gap-4 px-6 py-6">
-              {navLinks.map((link) => (
-                <a key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="text-muted-foreground hover:text-primary transition-colors">
-                  {link.label}
-                </a>
-              ))}
+              <a
+                href="https://wa.me/447704424643"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm bg-accent text-accent-foreground px-5 py-2.5 rounded-lg font-medium hover:opacity-90 transition-opacity"
+                onClick={() => setMobileOpen(false)}
+              >
+                Fale Conosco
+              </a>
             </div>
           </motion.div>
         )}
